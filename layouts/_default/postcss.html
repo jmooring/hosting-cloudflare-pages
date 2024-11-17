@@ -1,0 +1,23 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ with .GitInfo }}
+    <p>Last Modified: {{ .AuthorDate.Format "Jan 2, 2006 3:04:05 PM" }}</p>
+  {{ end }}
+  <hr>
+  {{ .Content }}
+
+  {{ $css := `
+::placeholder {
+  color: gray;
+}`
+  }}
+
+  <h2>CSS</h2>
+  {{ highlight (trim $css "\n") "css" }}
+
+  <h2>CSS after PostCSS (autoprefix)</h2>
+  {{ with $css | resources.FromString "temp/css" | postCSS }}
+    {{ highlight (trim .Content "\n") "css" }}
+  {{ end }}
+
+{{ end }}

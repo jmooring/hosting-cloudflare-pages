@@ -1,0 +1,19 @@
+// Nav
+// ----------------------------------------------------------------------------
+
+nav {
+  margin: 1em 0;
+}
+
+nav.menu a,
+nav.language-switcher a {
+  margin-right: 0.2em;
+}
+
+.active {
+  background-color: yellow;
+}
+
+.ancestor {
+  background-color: cyan;
+}

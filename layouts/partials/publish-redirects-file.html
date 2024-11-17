@@ -1,0 +1,10 @@
+{{ $s := "" }}
+{{ range $p := sort site.AllPages "Path" }}
+  {{ range $alias := sort $p.Aliases }}
+    {{ if not (strings.HasSuffix . "/") }}
+      {{ $alias = printf "%s/" . }}
+    {{ end }}
+    {{ $s = printf "%s%s %s 301\n" $s $alias $p.RelPermalink }}
+  {{ end }}
+{{ end }}
+{{ (resources.FromString "_redirects" $s).Publish }}

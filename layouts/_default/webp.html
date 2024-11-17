@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ with .GitInfo }}
+    <p>Last Modified: {{ .AuthorDate.Format "Jan 2, 2006 3:04:05 PM" }}</p>
+  {{ end }}
+  <hr>
+  {{ .Content }}
+
+  <p>Built with: {{ printf "hugo v%v-%v+%v" hugo.Version hugo.CommitHash (and hugo.IsExtended "extended") }}</p>
+
+  <div class="image-collage">
+    {{- with resources.Match "images/**" }}
+      {{- range . }}
+        {{- with .Resize "200x webp" -}}
+          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  </div>
+
+{{ end }}

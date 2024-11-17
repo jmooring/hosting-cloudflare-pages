@@ -1,0 +1,10 @@
+# Configure Cloudflare Pages
+
+name = 'hosting-cloudflare-pages'
+pages_build_output_dir = 'public'
+
+[vars]
+DART_SASS_VERSION = '1.81.0'
+GO_VERSION = '1.23.3'
+HUGO_VERSION = '0.138.0'
+TZ = 'America/Los_Angeles'

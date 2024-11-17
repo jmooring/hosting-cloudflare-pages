@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+  {{ .Content }}
+
+  <h2>Pagefind search</h2>
+  <link href="{{ `pagefind/pagefind-ui.css` | relURL }}" rel="stylesheet">
+  <script src="{{ `pagefind/pagefind-ui.js` | relURL }}" type="text/javascript"></script>
+  <div id="search"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      new PagefindUI({ element: "#search" });
+    });
+  </script>
+
+  <h2>Posts</h2>
+  {{ range (where site.RegularPages "Type" "posts").ByTitle }}
+    <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+  {{ end }}
+
+  <h2>Content from a Hugo module</h2>
+  {{ range (where site.RegularPages "Type" "articles").ByTitle }}
+    <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+  {{ end }}
+
+  <h2>Other tests</h2>
+  {{ range (where site.RegularPages "Type" "other-tests").ByWeight }}
+    <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+  {{ end }}
+
+
+
+{{ end }}

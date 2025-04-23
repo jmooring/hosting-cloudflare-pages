@@ -2,6 +2,8 @@
 
 This is a test of hosting a Hugo site on Cloudflare Pages.
 
+Requires Hugo v0.146.7 or later.
+
 This site:
 
 1. Includes content from a Hugo module

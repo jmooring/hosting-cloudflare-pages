@@ -4,7 +4,7 @@ name = 'hosting-cloudflare-pages'
 pages_build_output_dir = 'public'
 
 [vars]
-DART_SASS_VERSION = '1.81.0'
-GO_VERSION = '1.23.3'
-HUGO_VERSION = '0.139.2'
+DART_SASS_VERSION = '1.87.0'
+GO_VERSION = '1.24.2'
+HUGO_VERSION = '0.146.7'
 TZ = 'America/Los_Angeles'

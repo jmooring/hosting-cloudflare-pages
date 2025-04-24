@@ -24,14 +24,10 @@ main() {
   git fetch --recurse-submodules --unshallow
 
   # https://github.com/gohugoio/hugo/issues/9810
-  git config --add core.quotepath false
+  git config core.quotepath false
 
   # Build the site.
   hugo --gc --minify
-
-  # Build the search index.
-  echo "Building the Pagefind search index..."
-  ./pagefind --site public
 
 }
 

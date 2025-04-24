@@ -1,25 +1,61 @@
-# Configure Hugo
+baseURL              = 'https://example.org/'
+languageCode         = 'en-US'
+title                = 'Hosting Test - Cloudflare Pages'
+enableGitInfo        = true
 
-baseURL = 'https://www.boldbeam.com/'
-languageCode = 'en-US'
-title = 'Hosting Test - Cloudflare Pages'
+# -----------------------------------------------------------------------------
+# Caches
+# -----------------------------------------------------------------------------
 
-timeZone = 'America/Los_Angeles'
+[caches.images]
+  dir = ':cacheDir/images'
 
-capitalizeListTitles = false
-pluralizeListTitles = false
+# -----------------------------------------------------------------------------
+# Markup
+# -----------------------------------------------------------------------------
 
-disableAliases = true
-enableGitInfo = true
+[markup.goldmark.renderHooks.image]
+  enableDefault = true
 
-[frontmatter]
-lastmod = [':git']
+[markup.goldmark.renderHooks.link]
+  enableDefault = true
+
+# -----------------------------------------------------------------------------
+# Menus
+# -----------------------------------------------------------------------------
+
+[[menus.main]]
+  name    = 'Home'
+  pageRef = '/'
+  weight  = 10
+
+[[menus.main]]
+  name    = 'Articles'
+  pageRef = '/articles'
+  weight  = 20
+
+[[menus.main]]
+  name    = 'Books'
+  pageRef = '/books'
+  weight  = 30
+
+[[menus.main]]
+  name    = 'Tags'
+  pageRef = '/tags'
+  weight  = 40
+
+[[menus.main]]
+  name    = 'Tests'
+  pageRef = '/tests'
+  weight  = 50
+
+# -----------------------------------------------------------------------------
+# Module
+# -----------------------------------------------------------------------------
 
 [module.hugoVersion]
-min = '0.146.7'
+  extended = true
+  min      = '0.146.7'
 
 [[module.imports]]
-path = "github.com/jmooring/hugo-module-content"
-
-[taxonomies]
-tag = 'tags'
+  path = 'github.com/jmooring/hugo-module-content'

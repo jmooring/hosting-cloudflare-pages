@@ -6,5 +6,5 @@ pages_build_output_dir = 'public'
 [vars]
 DART_SASS_VERSION = '1.87.0'
 GO_VERSION = '1.24.2'
-HUGO_VERSION = '0.146.7'
+HUGO_VERSION = '0.147.0'
 TZ = 'America/Los_Angeles'

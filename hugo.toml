@@ -55,7 +55,7 @@ enableGitInfo        = true
 
 [module.hugoVersion]
   extended = true
-  min      = '0.146.7'
+  min      = '0.147.0'
 
 [[module.imports]]
   path = 'github.com/jmooring/hugo-module-content'
